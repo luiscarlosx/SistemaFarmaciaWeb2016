@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <title>@ViewBag.Title - WebFarma Software Administrador v1.0</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -18,13 +18,21 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("WebFarma", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    @*<li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                     <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>*@
+
+                    <li><a href="@Url.Action("Index", "Paciente")"><span><i class="fa fa-wheelchair"></i> Medicamento</span></a></li>
+                    <li><a href="@Url.Action("Index", "CronogramaTerapia")"><span><i class="fa fa-edit"></i> Usuario</span></a></li>
+                    <li><a href="@Url.Action("Index", "Cita")"><span><i class="fa fa-users"></i> Proveedor</span></a></li>
+                    <li><a href="@Url.Action("Index", "MedicoTerapeuta")"><span><i class="fa fa-user-md"> Cliente</i></span></a></li>
+                    <li><a href="@Url.Action("BedList", "Bed")"><span><i class="fa fa-user"></i> Pedido</span></a></li>
+                    <li><a href="@Url.Action("SiteMap", "Home")"><span><i class="fa fa-sitemap"></i> Venta</span></a></li>
+
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +42,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+            @*<p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>*@
+            <p class="text-muted">&copy; @DateTime.Now.Year - WebFarma Software Administrador v1.0</p>
         </footer>
     </div>
 
