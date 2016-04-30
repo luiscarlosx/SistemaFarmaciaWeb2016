@@ -5,6 +5,7 @@ namespace SistemaFarmaciaWeb.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     public partial class clientes
     {
@@ -48,5 +49,24 @@ namespace SistemaFarmaciaWeb.Models
         public virtual ICollection<OrdenPedido> OrdenPedido1 { get; set; }
 
         public virtual distrito distrito { get; set; }
+
+        public List<clientes> Listar()
+        {
+            var listaClientes = new List<clientes>();
+            try
+            {
+                using (var ctx = new FarmaciaContext())
+                {
+                    listaClientes = ctx.clientes.ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+
+            }
+
+            return listaClientes;
+        }
     }
 }

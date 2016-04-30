@@ -5,6 +5,7 @@ namespace SistemaFarmaciaWeb.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("proveedor")]
     public partial class proveedor
@@ -39,5 +40,24 @@ namespace SistemaFarmaciaWeb.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto> Producto { get; set; }
+
+        public List<proveedor> Listar()
+        {
+            var proveedores = new List<proveedor>();
+            try
+            {
+                using (var ctx = new FarmaciaContext())
+                {
+                    proveedores = ctx.proveedor.ToList();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+
+            }
+
+            return proveedores;
+        }
     }
 }
