@@ -1,0 +1,80 @@
+﻿@model IEnumerable<SistemaFarmaciaWeb.Models.Producto>
+
+@{
+    ViewBag.Title = "Productos";
+}
+
+<h2>Productos</h2>
+
+<p>
+    @Html.ActionLink("Nuevo Producto", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.categoria.nom_des)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.presentacion.nom_pre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.proveedor.nom_prov)
+        </th>*@
+        <th>
+            @*@Html.DisplayNameFor(model => model.nom_pro)*@
+            Producto
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.pre_venta)*@
+            Precio de Venta
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.pre_compra)*@
+            Precio de Compra
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.fecha_venc)*@
+            Fecha de Vencimiento
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.stock)*@
+            Stock
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.categoria.nom_des)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.presentacion.nom_pre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.proveedor.nom_prov)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.nom_pro)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pre_venta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pre_compra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_venc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cod_pro }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cod_pro }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cod_pro })
+        </td>
+    </tr>
+}
+
+</table>
